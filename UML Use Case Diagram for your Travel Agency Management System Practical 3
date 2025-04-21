@@ -1,0 +1,118 @@
+ UML Use Case Diagram for your Travel Agency Management System project.
+
+🧾 Step 1: Identify Actors
+Primary Actors:
+
+Customer – books trips, views packages, makes payments.
+
+Admin – manages packages, bookings, payments.
+
+Travel Agent – coordinates with customers and manages trip itineraries.
+
+Supporting Actors: 4. Payment Gateway System – processes online payments. 5. Hotel System / Airline API – used for confirming bookings.
+
+🧭 Step 2: Identify Use Cases
+Here are typical use cases that the system will handle:
+
+Customer:
+
+Register/Login
+
+Search Travel Packages
+
+View Package Details
+
+Book Package
+
+Make Payment
+
+Cancel Booking
+
+View Booking History
+
+Admin:
+
+Login
+
+Add/Edit/Delete Travel Packages
+
+View Bookings
+
+Manage Payments
+
+Manage Users
+
+Travel Agent:
+
+View Bookings Assigned
+
+Update Itinerary
+
+Confirm Availability
+
+System:
+
+«include» Authenticate User (shared by Login for Admin/Customer)
+
+«extend» Add Special Request (optional during booking)
+
+🎯 Step 3: Relationships
+Include:
+
+Book Package includes Login
+
+Make Payment includes Verify Card
+
+Extend:
+
+Book Package extends Add Special Request
+
+Generalization:
+
+Login (general use case) → specialized by Customer Login, Admin Login
+
+
+Actors:
+  - Customer
+  - Admin
+  - Travel Agent
+  - Payment Gateway
+  - Hotel/Airline System
+
+Use Cases:
+  - Register/Login (Customer)
+    - «include» Authenticate User
+  - Search Travel Packages
+  - View Package Details
+  - Book Package
+    - «include» Login
+    - «extend» Add Special Request
+  - Make Payment
+    - «include» Verify Card
+  - Cancel Booking
+  - View Booking History
+  - Add/Edit/Delete Travel Packages (Admin)
+  - View Bookings (Admin, Travel Agent)
+  - Update Itinerary (Travel Agent)
+  - Confirm Availability (Hotel/Airline System)
+
+
+📄 Use Case Scenario Example: "Book Package"
+Title: Book Travel Package
+Primary Actor: Customer
+Precondition: Customer is logged in
+Main Flow:
+
+Customer searches and selects a package.
+
+Views details and clicks "Book Now".
+
+Enters traveler info and selects date.
+
+Adds special requests (optional).
+
+Proceeds to payment.
+
+Payment is processed.
+
+Booking confirmation is shown.
