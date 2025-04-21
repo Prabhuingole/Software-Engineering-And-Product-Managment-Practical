@@ -1,0 +1,120 @@
+✨ Step 1: Identify Entity Sets and Attributes
+Here are the core entities and their key attributes:
+
+1. Customer
+Customer_ID (Primary Key)
+
+Name
+
+Email
+
+Phone
+
+Address
+
+Password
+
+2. Travel_Package
+Package_ID (Primary Key)
+
+Title
+
+Description
+
+Destination
+
+Price
+
+Duration
+
+Start_Date
+
+End_Date
+
+3. Booking
+Booking_ID (Primary Key)
+
+Booking_Date
+
+Number_of_People
+
+Total_Amount
+
+Status
+
+Customer_ID (Foreign Key)
+
+Package_ID (Foreign Key)
+
+4. Payment
+Payment_ID (Primary Key)
+
+Amount
+
+Payment_Date
+
+Payment_Method
+
+Booking_ID (Foreign Key)
+
+5. Admin
+Admin_ID (Primary Key)
+
+Name
+
+Email
+
+Password
+
+6. Travel_Agent
+Agent_ID (Primary Key)
+
+Name
+
+Email
+
+Phone
+
+Assigned_Package_ID (Foreign Key)
+
+🔗 Step 2: Identify Relationships and Cardinalities
+
+Relationship	Entities Involved	Cardinality	Notes
+Books	Customer ↔ Booking	1 to many	One customer can make multiple bookings
+Includes	Booking ↔ Travel_Package	many to 1	One package can be booked by many customers
+Makes	Booking ↔ Payment	1 to 1	Each booking has one payment
+Manages	Admin ↔ Travel_Package	1 to many	One admin manages multiple packages
+Assigned_To	Travel_Agent ↔ Travel_Package	many to many	One agent can manage multiple packages; one package can be handled by multiple agents
+We’ll represent the many-to-many relationship between Travel Agent and Travel Package using an associative entity: Agent_Assignment.
+
+🧩 Step 3: Optional Weak Entities
+You may define Dependent as a weak entity (if required) under Customer for family members joining travel (depends on scope).
+
+🖼️ Step 4: ER Diagram Structure (Text Version)
+vbnet
+Copy
+Edit
+Entities:
+  Customer (Customer_ID, Name, Email, Phone, Address, Password)
+  Travel_Package (Package_ID, Title, Description, Destination, Price, Duration, Start_Date, End_Date)
+  Booking (Booking_ID, Booking_Date, Number_of_People, Total_Amount, Status)
+  Payment (Payment_ID, Amount, Payment_Date, Payment_Method)
+  Admin (Admin_ID, Name, Email, Password)
+  Travel_Agent (Agent_ID, Name, Email, Phone)
+  Agent_Assignment (Agent_ID, Package_ID)
+
+Relationships:
+  Customer "Books" Booking       [1 to many]
+  Booking "Includes" Travel_Package [many to 1]
+  Booking "Makes" Payment        [1 to 1]
+  Admin "Manages" Travel_Package [1 to many]
+  Travel_Agent "Assigned_To" Travel_Package [many to many] via Agent_Assignment
+
+
+
+
+
+
+
+
+
