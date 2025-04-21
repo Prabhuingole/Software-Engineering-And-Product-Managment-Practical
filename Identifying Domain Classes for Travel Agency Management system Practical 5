@@ -1,0 +1,93 @@
+✅ Steps to Identify Domain Classes from the Problem Statement
+📝 Sample Problem Statement (Condensed for Example)
+A travel agency offers various travel packages to customers. Customers can browse packages, book trips, and make payments online. Admins manage the packages and agents. Travel agents handle assigned packages and assist customers during the trip.
+
+🔍 Step 1: Identify Nouns and Noun Phrases (Grammatical Approach)
+Nouns/Noun Phrases found:
+
+Travel agency
+
+Travel packages
+
+Customers
+
+Trips
+
+Payments
+
+Admins
+
+Travel agents
+
+Booking
+
+Destination
+
+Price
+
+Date
+
+Duration
+
+🎯 Step 2: Apply Domain Knowledge to Add/Filter
+Additional relevant concepts:
+
+User account
+
+Itinerary
+
+Feedback/Reviews
+
+Transaction
+
+Filtered out:
+
+Date, Price, Duration → These are attributes, not classes themselves
+
+Destination → could be treated as attribute or a class if used independently
+
+📦 Step 3: Classify by Ross Categories
+
+Category	Potential Classes
+People	Customer, Admin, Travel Agent
+Places	Destination (optional class)
+Things	Travel Package, Payment, Booking
+Organizations	Travel Agency
+Concepts	Feedback, Review, Transaction
+Events	Trip, Booking, Payment
+🧩 Step 4: Final Top-Level Domain Classes
+Here’s the final list of domain classes for the Travel Agency Management System:
+
+Customer
+
+Admin
+
+TravelAgent
+
+TravelPackage
+
+Booking
+
+Payment
+
+Trip
+
+Itinerary (optional, if trip details are structured)
+
+Review / Feedback
+
+Transaction (optional, could be combined with Payment)
+
+Destination (optional, as a separate class if needed for reuse)
+
+📌 Example of Grouped Classes with Attributes (Preview)
+
+Class	Sample Attributes
+Customer	ID, Name, Email, Phone, Password
+TravelPackage	ID, Title, Description, Price, Duration
+Booking	ID, BookingDate, Status, CustomerID
+Payment	ID, Amount, PaymentMethod, PaymentDate
+Admin	ID, Name, Email
+TravelAgent	ID, Name, Email, Phone
+Trip	ID, StartDate, EndDate, TravelPackageID
+Review	ID, Content, Rating, CustomerID, PackageID
